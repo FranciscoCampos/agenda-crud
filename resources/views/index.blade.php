@@ -3,40 +3,39 @@
 
 
 @section('content')
+          
 
-
-
- <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </span> 
-      <button type="button" class="btn btn-primary  pull-right" aria-label="Left Align">
-		  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-		</button>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-
-  <hr>
-
- @for($i=0;$i< 2;$i++)
-  <div class="media">
-	  <div class="media-left">
-	    <a href="#">
-	      <img class="media-object " id="imgs" src="{{asset('img/grunt-logo.png')}}"/>
-	    </a>
-	  </div>
-	  <div class="media-body">
-	    <h4 class="media-heading">Francisco Campos</h4>
-	    <h5 class="media-heading">email@hotmail.com</h5>
-	    <button type="button" class="btn btn-primary btn-xs pull-right" aria-label="Left Align">
-		  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-		</button>
-	  </div>
+	<div class="row">
+	<a class="btn-floating right" href="{{route('agenda.create')}}"><i class="material-icons">add</i></a>
+    <form action="{{route('agenda.index')}}" method="GET">
+		<div class="input-field col s12">
+			<input placeholder="Buscar Contacto" name="nombre" id="first_name" type="text" class="validate">
+	    </div>
+    </form>
 	</div>
- <hr>
- @endfor
+
+@if(count($contactos))
+
+ <ul class="collection">
+
+    @foreach($contactos as $contacto)
+	    <li class="collection-item avatar">
+	      <img src="img/{{$contacto->avatar}}" alt="" class="circle">
+	      <span class="title">{{$contacto->nombre . ' '. $contacto->apellido}}</span>
+	      <p>{{$contacto->email}}<br>
+	      </p>
+	      <a href="{{route('agenda.show', $contacto->id)}}" class="secondary-content"><i class="material-icons">visibility</i></a>
+	    </li>
+    @endforeach
+ 	
+  </ul>
+   
+
+    {!! $contactos->render() !!}
+   
+@else
+   <h6>No Hay resultados...</h6>
+@endif	
+
+
 @stop

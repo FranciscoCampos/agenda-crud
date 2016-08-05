@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Agenda;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Requests\AgendaRequest;
+use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
@@ -14,9 +15,14 @@ class AgendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('index');
+    public function index(Request $request)
+    {   
+
+        $contactos = Agenda::nombre($request->get('nombre'))
+                             ->paginate();
+        
+
+        return view('index' , compact('contactos'));
     }
 
     /**
@@ -26,7 +32,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +43,9 @@ class AgendaController extends Controller
      */
     public function store(AgendaRequest $request)
     {
-        //
+        Agenda::create($request->all());
+
+        return redirect('agenda');
     }
 
     /**
@@ -48,7 +56,9 @@ class AgendaController extends Controller
      */
     public function show($id)
     {
-        //
+        $contacto = Agenda::find($id);
+
+        return view('show', compact('contacto'));
     }
 
     /**
