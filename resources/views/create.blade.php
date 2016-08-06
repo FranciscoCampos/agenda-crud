@@ -5,7 +5,7 @@
 @section('content')
 
 
- <form action="{{route('agenda.store')}}" method="POST">
+ <form action="{{route('agenda.store')}}" method="POST" autocomplete="off">
 
      {{csrf_field()}}
 
@@ -24,14 +24,7 @@
           <label for="email" data-error="wrong" data-success="right">Email</label>
         </div>
 
-	 <div class="input-field col s12 ">
-	    <select class="icons" name="avatar">
-	      <option value="" >Selecciona tu Avatar</option>
-	      <option value="img01.jpg" data-icon="{{asset('img/img01.jpg')}}" class="circle">Avatar-01</option>
-	      <option value="img02.jpg" data-icon="{{asset('img/img02.jpg')}}" class="circle">Avatar-02</option>
-	      <option value="img03.jpg" data-icon="{{asset('img/img03.jpg')}}" class="circle">Avatar-03</option>
-	    </select>
-	  </div>
+	 @include('partials.avatar')
 
   	<div class="input-field col s12 ">
 	    <select class="icons" name="grupo">
@@ -42,6 +35,6 @@
 	    </select>
 	  </div>
 
-  <button type="submit" class="btn btn-info">Nuevo</button>
+  <button type="submit" class="btn btn-info">Guardar</button>
 </form>
 @stop

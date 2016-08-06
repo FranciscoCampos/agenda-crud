@@ -14,7 +14,7 @@
 			height: 64px;
 		}
 		.card-title{
-			color: #fff;
+			color: #000;
 		}
 		
 	</style>
@@ -25,8 +25,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s6  offset-s3">
-			<div class="card blue-grey darken-1">
-            <div class="card-content darken-1-text ">
+			<div class="card grey darken-4">
+            <div class="card-content grey lighten-5 ">
               <span class="card-title">AGENDA CRUD</span>
 				@yield('content')
 			</div>
@@ -36,7 +36,7 @@
 	</div>
 
 
-  <!-- Compiled and minified JavaScript -->
+  
 
 	<script src="{{asset('assets/js/jquery-3.1.0.min.js')}}"></script>
 	{{-- <script src="{{asset('assets/js/bootstrap.min.js')}}"></script> --}}

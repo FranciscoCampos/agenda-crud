@@ -41,7 +41,7 @@ class AgendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AgendaRequest $request)
+    public function store(Request $request)
     {
         Agenda::create($request->all());
 
@@ -79,7 +79,7 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AgendaRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -92,6 +92,7 @@ class AgendaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Agenda::destroy($id);
+        return redirect('agenda');
     }
 }

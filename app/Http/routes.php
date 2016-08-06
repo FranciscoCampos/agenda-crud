@@ -8,3 +8,5 @@ Route::get('/', function () {
 
 
 Route::resource('agenda', 'AgendaController');
+
+

@@ -16,7 +16,13 @@
             <div class="card-action">
               <a href="{{route('agenda.index')}}"><i class="small material-icons">contacts</i></a>
               <a href="{{route('agenda.edit', $contacto->id)}}"><i class="small material-icons">mode_edit</i></a>
-              <a href="{{route('agenda.index')}}"><i class="small material-icons">delete</i></a>
+              
+              <form action="{{route('agenda.destroy' , $contacto->id)}}" method="POST">
+                {{ method_field('DELETE')}} {{csrf_field()}}
+             
+              <button type="submit" class="waves-effect waves-light btn right-align"><i class="small material-icons">delete</i></button> 
+              </form>
+
             </div>
           </div>
         </div>
