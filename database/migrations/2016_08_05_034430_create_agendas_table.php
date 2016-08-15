@@ -17,8 +17,8 @@ class CreateAgendasTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('email')->unique();
-            $table->string('avatar');
-            $table->enum('grupo', ['familia','amigo','trabajo']);
+            $table->string('avatar')->default('img01.jpg');
+            $table->enum('grupo', ['familia','amigos','trabajo']);
             $table->timestamps();
         });
     }

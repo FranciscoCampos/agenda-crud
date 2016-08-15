@@ -16,7 +16,12 @@
 		.card-title{
 			color: #000;
 		}
+		.btn-floating{
+			margin-right: 0.5em;
+			float: left;
+		}
 		
+
 	</style>
 </head>
 <body>
@@ -28,6 +33,8 @@
 			<div class="card grey darken-4">
             <div class="card-content grey lighten-5 ">
               <span class="card-title">AGENDA CRUD</span>
+              @include('partials.btn-nav')
+                @include('mensajes.mensaje')
 				@yield('content')
 			</div>
 			</div>
@@ -45,6 +52,10 @@
 		$(document).ready(function() {
 		    $('select').material_select();
 		  });
+		 $(document).ready(function(){
+		    $('.tooltipped').tooltip({delay: 50});
+		  });
+      
 	</script>
 </body>
 </html>

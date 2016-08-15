@@ -4,9 +4,9 @@
 
 @section('content')
 
-{{-- @include('errors.errors') --}}
+@include('errors.errors')
 
-{!! Form::open(['route' => 'agenda.store' , 'method' => 'POST' ,'autocomplete'=>'off'])!!}
+{!! Form::model($contacto , ['route' => ['agenda.update', $contacto->id ] , 'method' => 'PUT' ,'autocomplete'=>'off'])!!}
 
    @include('partials.formulario')
 

@@ -17,4 +17,11 @@ class Agenda extends Model
         	
         }
     }
+
+    public function scopeGrupoFamilia($query, $grupo){
+       
+       if($grupo != ''){
+    		$query->where('grupo', '=' ,"$grupo");
+        }
+    }
 }

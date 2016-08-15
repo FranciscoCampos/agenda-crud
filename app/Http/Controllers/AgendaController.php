@@ -17,11 +17,11 @@ class AgendaController extends Controller
      */
     public function index(Request $request)
     {   
-
-        $contactos = Agenda::nombre($request->get('nombre'))
+         
+        $contactos = Agenda::grupofamilia($request->get('grupo'))->nombre($request->get('nombre'))
                              ->paginate();
         
-
+  
         return view('index' , compact('contactos'));
     }
 
@@ -41,8 +41,8 @@ class AgendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(AgendaRequest $request)
+    {  
         Agenda::create($request->all());
 
         return redirect('agenda');
@@ -57,7 +57,7 @@ class AgendaController extends Controller
     public function show($id)
     {
         $contacto = Agenda::find($id);
-
+         
         return view('show', compact('contacto'));
     }
 
@@ -69,7 +69,9 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contacto = Agenda::findOrFail($id);
+
+        return view('edit', compact('contacto'));
     }
 
     /**
@@ -79,9 +81,17 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(AgendaRequest $request, $id)
+    {  
+        $contacto = Agenda::findOrFail($id);
+        // dd($contacto);
+        $contacto->nombre = $request->input('nombre');
+        $contacto->apellido = $request->input('apellido');
+        $contacto->email = $request->input('email');
+        $contacto->avatar = $request->input('avatar');
+        $contacto->grupo = $request->input('grupo');
+        $contacto->save();
+        return redirect('agenda');
     }
 
     /**
@@ -95,4 +105,5 @@ class AgendaController extends Controller
         Agenda::destroy($id);
         return redirect('agenda');
     }
+
 }
