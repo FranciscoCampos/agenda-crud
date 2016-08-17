@@ -20,7 +20,7 @@
                  <a class="btn-floating waves-light btn  " href="{{route('agenda.index')}}"><i class="small material-icons">contacts</i></a>
                </div> 
                <div class="col s4">
-                 <center><a class="btn-floating deep-purple lighten-1 btn " href="{{route('agenda.edit', $contacto->id)}}"><i class="small material-icons">mode_edit</i></a> </center>
+                 <a class="btn-floating deep-purple lighten-1 btn centrado" href="{{route('agenda.edit', $contacto->id)}}"><i class="small material-icons">mode_edit</i></a>
                </div>
                <div class="col s4">
          {!!Form::open(['route'  => ['agenda.destroy' , $contacto->id ] , 'method' =>'DELETE'])!!}

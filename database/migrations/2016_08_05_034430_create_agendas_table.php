@@ -17,7 +17,7 @@ class CreateAgendasTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('email')->unique();
-            $table->string('avatar')->default('img01.jpg');
+            $table->string('avatar')->default('grunt-logo.png');
             $table->enum('grupo', ['familia','amigos','trabajo']);
             $table->timestamps();
         });
@@ -26,7 +26,7 @@ class CreateAgendasTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return void
+     * @return voida
      */
     public function down()
     {

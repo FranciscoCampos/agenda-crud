@@ -18,7 +18,8 @@ class AgendaController extends Controller
     public function index(Request $request)
     {   
          
-        $contactos = Agenda::grupofamilia($request->get('grupo'))->nombre($request->get('nombre'))
+        $contactos = Agenda::grupofamilia($request->get('grupo'))
+                             ->nombre($request->get('nombre'))
                              ->paginate();
         
   

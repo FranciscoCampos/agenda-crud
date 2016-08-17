@@ -34,8 +34,8 @@ class AgendaRequest extends Request
     {  
       // dd($this->route->getParameter('agenda'));
         return [
-            'nombre' => 'required|min:4|max:20',
-            'apellido' => 'required|min:4|max:20',
+            'nombre' => 'string|required|min:4|max:20',
+            'apellido' => 'string|required|min:4|max:20',
             'email' => 'required|email|unique:agendas,email,'.$this->route->getParameter('agenda'),
             'grupo' => 'required|in:familia,trabajo,amigos',
         ];

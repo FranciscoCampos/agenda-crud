@@ -2,9 +2,7 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AgendaController@index');
 
 Route::get('grupo/{grupo}', 'AgendaController@index');
 
