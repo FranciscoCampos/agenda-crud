@@ -17,6 +17,14 @@
 
 `php artisan key:generate`
 
+### Configurar la conexion a la base de datos.
+
+`Crear el archivo .env y compiar el contenido del .env.example`
+
+DB_DATABASE= tu_data_base
+DB_USERNAME= user_name
+DB_PASSWORD= tu_password
+
 ### Corremos las migraciones.
 
 `php artisan migrate`
